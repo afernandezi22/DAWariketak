@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Contenido"
-AuthUserFile E:/xampp/htdocs/DWES/AutentikazioFroga/.htpasswd
-Require user usuario

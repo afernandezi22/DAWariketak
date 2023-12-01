@@ -1,6 +1,0 @@
-<Files "*">
-    AuthType Basic
-    AuthName "Área Restringida"
-    AuthUserFile E:/xampp/htdocs/DWES/Auth/.htpasswd
-    Require valid-user
-</Files>
