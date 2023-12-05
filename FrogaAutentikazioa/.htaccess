@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Contenido"
-AuthUserFile C:\xampp\htdocs\DAWariketak\FrogaAutentikazioa\.htpasswd
-Require valid-user
