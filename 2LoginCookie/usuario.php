@@ -32,7 +32,7 @@
         //==============================================================================================>
         public function register($datuak){
             $this -> connect();
-
+            // Lortutako pasahitza enkriptatu eta datu-basean sartu
             $hash = password_hash($datuak["password"], PASSWORD_BCRYPT);
             $sql = "INSERT INTO usuarios(Usuario, Pass) VALUES('" . $datuak["user"] . "', '" . $hash . "')";
             
@@ -51,20 +51,26 @@
         public function login($datuak){
             $this -> connect();
             
+            // Erabiltzailearen arabera kontsulta egin
             $sql = "SELECT * FROM usuarios WHERE Usuario LIKE '" . $datuak["userLogin"] . "'";
             try{
                 $emaitza = $this -> conn -> query($sql);
+                // Emaitzaren bat badago
                 if ($emaitza -> num_rows > 0){
                     //Konexioa itxi
                     $this -> conn -> close();
+                    // Emaitza begiratu eta pasahitzaren hash-a lortu
                     foreach($emaitza as $user){
                         $hash = $user["Pass"];
                     }
+
+                    // Desenkriptatu verify eginez. True edo false bueltatzen du ondo/txarto badago
                     $ondo = password_verify($datuak["passwordLogin"], $hash);
                     return $ondo;
                 }else{
                     //Konexioa itxi
                     $this -> conn -> close();
+                    // Ez badu erabiltzailea topatzen false bueltatzen du
                     return false;
                 }
             } catch (Exception $e) {
@@ -73,18 +79,28 @@
         }
     }
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["userLogin"])){
+    
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["userLogin"])){ // Login-a
         $db = new DB();
         $datuak = ["userLogin" => $_POST["userLogin"], "passwordLogin" => $_POST["passwordLogin"]];
         if($db -> login($datuak)){
-            header('Location: register.html');
+            //Ondo badago cookie sortzen du erabiltzailearen izenarekin eta 120 segunduko bizitzarekin
+            setcookie("login", $_POST["userLogin"] , time()+120);
+            // Erregistroko pantailaren eramaten du
+            header('Location: register.php');
         } else{
-            echo "TXARTO!";
+            echo "Logina ez da zuzena!";
         }
-    } elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
+    } elseif($_SERVER['REQUEST_METHOD'] == 'POST'){ // Erregistroa
         $db = new DB();
         $datuak = ["user" => $_POST["user"], "password" => $_POST["password"]];
-        $db -> register($datuak);
+        if(!isset($_COOKIE['login'])){
+            // Cookie-a ez badago (120 segundoak pasatu badira) erregistroa ez du egingo eta loginera bueltatuko da
+            header('Location: usuario.php');
+        } else{
+            // Cookie-a topatzen badu erregistroa egingo du
+            $db -> register($datuak);
+        }
     }
 ?>
 
