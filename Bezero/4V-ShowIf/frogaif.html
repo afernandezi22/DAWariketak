@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Froga</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-show="message.length > 2">Kaixo <span v-text="message"></span></h1>
+        <!-- EZ du elementua kentzen, bakarrik display.none egiten du -->
+        <h1 v-if="message.length > 2">Kaixo <span v-text="message"></span></h1>
+        <h1 v-else>Mesedez zure mezua idatzi</h1>
+        <!-- elementua KENTZEN du -->
+        <input type="text"  v-model="message">
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: "Aldatuta"
+                }
+            })
+    </script>
+</body>
+</html>
