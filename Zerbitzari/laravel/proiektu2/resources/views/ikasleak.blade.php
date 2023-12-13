@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html lang="eu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ikasleak</title>
-</head>
-<body>
-    <h1>Ikasleak</h1>
-    <table border="1px solid black">
+@extends('plantilla')
+@section('title')
+    Ikasleak
+@endsection
+
+@section('taula')
+    <thead>
         <tr>
-            <th>ID</th>
-            <th>Izena</th>
-            <th>Abizena</th>
-            <th>Email</th>
+            <th scope="col">#</th>
+            <th scope="col">Izena</th>
+            <th scope="col">Adina</th>
         </tr>
+    </thead>
+    <tbody>
+    @foreach ($ikasleak as $ikasle)
+        <!-- {{ $zbk = 1; }} -->
         <tr>
-            <td>1</td>
-            <td>Asier</td>
-            <td>Fernandez</td>
-            <td>afernandezi22@fpsanjorge.com</td>
+            <th scope="row">1</th>
+            <td>{{ $ikasle["izena"] }}</td>
+            <td>{{ $ikasle["adina"] }}</td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Izaskun</td>
-            <td>Fernandez</td>
-            <td>ifernandezi22@fpsanjorge.com</td>
-        </tr>
-    </table>
-</body>
-</html>
+        <!-- {{ $zbk++; }} -->
+    @endforeach
+
+    </tbody>
+@endsection

@@ -18,7 +18,21 @@ Route::get('/', function () {
 });
 
 Route::get('ikasleak', function () {
-    return view('ikasleak');
+    $ikasleak = [
+        ['izena' => 'Ane', 'adina' => 20],
+        ['izena' => 'Unai', 'adina' => 22],
+        ['izena' => 'Maite', 'adina' => 19],
+        ['izena' => 'Gorka', 'adina' => 21],
+        ['izena' => 'Leire', 'adina' => 23],
+        ['izena' => 'Iker', 'adina' => 20],
+        ['izena' => 'Amaia', 'adina' => 21],
+        ['izena' => 'Eneko', 'adina' => 22],
+        ['izena' => 'Ainhoa', 'adina' => 19],
+        ['izena' => 'Jon', 'adina' => 23],
+    ];
+
+    
+    return view('ikasleak', ['ikasleak' => $ikasleak]);
 });
 
 Route::get('irakasleak', function () {
@@ -30,9 +44,5 @@ Route::get('ikasgaiak', function () {
 });
 
 Route::get('gelak/id/{id}', function ($id) {
-    if(is_numeric($id)){
-        return view('gelak', ['id' => $id]);
-    } else{
-        abort(404);
-    }
-});
+    return view('gelak', ['id' => $id]);
+})->where('id', '[0-9]+');
