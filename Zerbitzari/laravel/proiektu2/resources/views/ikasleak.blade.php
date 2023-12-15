@@ -12,15 +12,25 @@
         </tr>
     </thead>
     <tbody>
-    @foreach ($ikasleak as $ikasle)
-        <!-- {{ $zbk = 1; }} -->
-        <tr>
-            <th scope="row">1</th>
-            <td>{{ $ikasle["izena"] }}</td>
-            <td>{{ $ikasle["adina"] }}</td>
-        </tr>
-        <!-- {{ $zbk++; }} -->
-    @endforeach
 
+    @if(isset($adina))
+        @foreach($ikasleak as $ikasle)    
+            @if($ikasle["adina"]>=$adina)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $ikasle["izena"] }}</td>
+                    <td>{{ $ikasle["adina"] }}</td>
+                </tr>
+            @endif
+        @endforeach
+    @else
+        @foreach ($ikasleak as $ikasle)
+            <tr>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $ikasle["izena"] }}</td>
+                <td>{{ $ikasle["adina"] }}</td>
+            </tr>
+        @endforeach
+    @endif
     </tbody>
 @endsection

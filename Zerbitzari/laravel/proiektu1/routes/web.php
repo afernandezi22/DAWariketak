@@ -13,13 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('ikasleak', function () {
-    return view('ikasleak');
-});
+Route::get('/', 'App\Http\Controllers\Welcome_Controller@welcome');
+
+// Route::get('ikasleak', function () {
+//     return view('ikasleak');
+// });
+
+Route::get('ikasleak', 'App\Http\Controllers\Welcome_Controller@ikasleak');
+
+Route::get('kirolari', 'App\Http\Controllers\Kirolari_Controller@erakutsi');
 
 Route::get('irakasleak', function () {
     return view('irakasleak');
@@ -27,10 +33,6 @@ Route::get('irakasleak', function () {
 
 Route::get('ikasgaiak', function () {
     return view('ikasgaiak');
-});
-
-Route::get('css', function () {
-    return file('taulak.css');
 });
 
 Route::get('gelak/id/{id}', function ($id) {

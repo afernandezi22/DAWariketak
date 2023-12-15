@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erosketa zerrenda</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label for="produktuIzena">Produktua:</label>
+            <input type="text" id="produktuIzena" v-model="produktuIzena" @keyup.enter="produktuaGehitu">
+        </div>
+
+        <div>
+            <label for="kantitatea">Kantitatea:</label>
+            <input type="number" id="kantitatea" v-model="kantitatea" min="1" @keyup.enter="produktuaGehitu">
+        </div>
+        <button @click="produktuaGehitu">Gehitu</button>
+        <h1>Egiteko</h1>
+        <ul>
+            <li v-for="produktu in produktuak">{{ produktu.produktuIzena }} - Kantitatea: {{ produktu.kantitatea }}</li>
+        </ul>
+        
+        <hr>
+        <h1>Eginda</h1>
+        <ul>
+            <li v-for="produktu in eginda">{{ produktu.produktuIzena }} - Kantitatea: {{ produktu.kantitatea }}</li>
+        </ul>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    produktuIzena: '',
+                    kantitatea: 1,
+                    produktuak: [],
+                    eginda: []
+                },
+                methods: {
+                    produktuaGehitu() {
+                        if (this.produktuIzena.trim() !== '') {
+                            if(this.kantitatea < 1){
+                                alert("Ezin da 1 baino gutxiago izan!");
+                            } else{
+                                this.produktuak.push({
+                                    produktuIzena: this.produktuIzena,
+                                    kantitatea: this.kantitatea
+                                });
+                            }
+                        }
+                    }
+                    , produktuaKendu(){
+                        this.p    
+                    }
+                }
+            });
+    </script>
+</body>
+</html>
