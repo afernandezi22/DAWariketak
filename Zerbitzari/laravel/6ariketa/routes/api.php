@@ -21,4 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/beharrak', [Beharrak_Controller::class, 'index']);
 
-Route::get('/beharrak/id', [Beharrak_Controller::class, 'erakutsi']);
+Route::get('/beharrak/{id}', [Beharrak_Controller::class, 'erakutsi']);
+
+Route::post('/beharrak', [Beharrak_Controller::class, 'gorde']);
+
+Route::put('/beharrak', [Beharrak_Controller::class, 'eguneratu']);
+
+Route::delete('/beharrak/{id}', [Beharrak_Controller::class, 'ezabatu']);
