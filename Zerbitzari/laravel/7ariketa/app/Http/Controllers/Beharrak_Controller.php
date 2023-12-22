@@ -18,7 +18,7 @@ class Beharrak_Controller extends Controller
         if(!$emaitza){
             return response()->json(['error' => 'Ez dago erregistrorik id horrekin'], 404);
         }
-        return response() -> json($emaitza, 200);
+        return response() -> json($emaitza);
     }
 
     // public function erakutsi(Request $request){
