@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class animalia extends Model
 {
-    // use HasFactory;
     protected $table = 'animaliak';
+    public $timestamps = false;
+    protected $fillable = ['izena', 'izen_zientifikoa', 'pisua', 'tamaina'];
 }

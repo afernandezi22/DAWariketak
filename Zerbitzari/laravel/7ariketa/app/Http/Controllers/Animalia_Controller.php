@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\animalia;
+use App\Models\animalia;
 
 class Animalia_Controller extends Controller
 {
-    public function getAll(){
+    public function index(){
         $emaitza = animalia::all();
         
         if(!$emaitza){
@@ -16,7 +16,7 @@ class Animalia_Controller extends Controller
         return response() -> json($emaitza);
     }
 
-    public function getById($id){
+    public function erakutsi($id){
         $emaitza = animalia::find($id);
 
         if(!$emaitza){
@@ -25,7 +25,7 @@ class Animalia_Controller extends Controller
         return response() -> json($emaitza);
     }
 
-    public function post(Request $request){
+    public function gorde(Request $request){
         if(animalia::find($request -> input('id'))){
             return response() -> json(['error' => "Badago erregistro bat ID horrekin"], 400);
         }
@@ -33,12 +33,15 @@ class Animalia_Controller extends Controller
         $animalia = new animalia;
         $animalia -> id = $request->input('id');
         $animalia -> izena = $request->input('izena');
+        $animalia -> izen_zientifikoa = $request->input('izen_zientifikoa');
+        $animalia -> pisua = $request->input('pisua');
+        $animalia -> tamaina = $request -> input('tamaina');
         $animalia -> save();
 
         return response()->json(['mezua' => 'Informazioa ondo gorde da'], 201);
     }
 
-    public function put(Request $request){
+    public function eguneratu(Request $request){
         $animalia = animalia::find($request -> input('id'));
 
         if(!$animalia){
@@ -46,12 +49,15 @@ class Animalia_Controller extends Controller
         }
 
         $animalia -> izena = $request->input('izena');
+        $animalia -> izen_zientifikoa = $request->input('izen_zientifikoa');
+        $animalia -> pisua = $request->input('pisua');
+        $animalia -> tamaina = $request -> input('tamaina');
         $animalia -> save();
 
         return response()->json(['mezua' => 'Informazioa ondo gorde da'], 200);
     }
 
-    public function delete($id){
+    public function ezabatu($id){
         $animalia = animalia::find($id);
 
         if(!$animalia){
