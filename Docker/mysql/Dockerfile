@@ -5,4 +5,4 @@ COPY 01BD_sortu.sql /docker-entrypoint-initdb.d/
 COPY 02BD_txertatu_datuak.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 3306
-CMD ["mysqld", "--daemonize=0"]
+# CMD ["mysqld", "--daemonize=0"]
