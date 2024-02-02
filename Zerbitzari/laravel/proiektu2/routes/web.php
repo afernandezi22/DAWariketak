@@ -81,7 +81,7 @@ Route::get('ikasgaiak/iragazkia/{letra}', function ($letra) {
         'Informatika Konpetentzia Laborategia' => 120,
         'Proiektua' => 40,
     ];
-    
+
     return view('ikasgaiak', ['ikasgaiak' => $ikasgaiak, 'letra' => $letra]);
 })->where('letra', '[a-z,A-Z]');;
 

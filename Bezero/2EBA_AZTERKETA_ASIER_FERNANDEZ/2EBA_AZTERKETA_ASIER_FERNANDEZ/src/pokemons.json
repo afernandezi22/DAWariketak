@@ -1,0 +1,17 @@
+[
+  { "id": "1", "name": "bulbasaur",  "type": "plant", "ability": "Razor Leaf", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" },
+  { "id": "2", "name": "ivysaur",  "type": "plant", "ability": "Seed Bomb", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"},
+  { "id": "5", "name": "charmeleon",  "type": "fire", "ability": "Flamethrower", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"},
+  { "id": "6", "name": "charizard",  "type": "fire", "ability": "Inferno", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" },
+  { "id": "7", "name": "squirtle",  "type": "water", "ability": "Water Gun", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"},
+  { "id": "11", "name": "metapod",  "type": "bug", "ability": "Harden", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png" },
+  { "id": "12", "name": "butterfree", "type": "bug", "ability": "Stun Spore", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png"},
+  { "id": "17", "name": "pidgeotto",  "type": "flying", "ability": "Wing Attack", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png"},
+  { "id": "18", "name": "pidgeot",  "type": "flying", "ability": "Air Slash", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"},
+  { "id": "20", "name": "raticate",  "type": "normal", "ability": "Tail Whip", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png"},
+  { "id": "21", "name": "spearow",  "type": "flying", "ability": "Peck", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png"},
+  { "id": "22", "name": "fearow",  "type": "flying", "ability": "Sky Attack", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png"},
+  { "id": "23", "name": "ekans",  "type": "poison", "ability": "Poison Sting", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png"},
+  { "id": "24", "name": "arbok",  "type": "poison", "ability": "Toxic", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png"},
+  { "id": "25", "name": "pikachu", "type": "electric", "ability": "Thunder Shock", "imageURL": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" }
+]
